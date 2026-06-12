@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model PriceEntry {
+  id          String   @id @default(cuid())
+  productName String
+  price       Float
+  city        String
+  note        String?
+  capturedAt  DateTime @default(now())
+}
